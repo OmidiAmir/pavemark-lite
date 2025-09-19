@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+
+# Environments
+.venv/
+.env
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (keep metadata only)
+data/*
+!data/README.md
+
+# Models & exports
+models/
+export/
+
+# Logs & reports
+logs/
+reports/
