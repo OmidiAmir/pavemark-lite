@@ -1,0 +1,24 @@
+# configs/data/tusimple.yaml
+dataset:
+  name: tusimple
+  root: data/tusimple
+
+  # Use the originals produced by preprocessing.py (C3 steps)
+  images: ${dataset.root}/images
+  masks:  ${dataset.root}/masks
+  splits: ${dataset.root}/splits
+
+  # Model input target (the loader/augs will enforce this later)
+  height: 720
+  width: 1280
+
+  # Files listing stems
+  train_file: ${dataset.splits}/train.txt
+  val_file:   ${dataset.splits}/val.txt
+  test_file:  ${dataset.splits}/test.txt
+
+  # Binary segmentation
+  num_classes: 1
+  mask_values:
+    background: 0
+    lane: 255
