@@ -1,0 +1,32 @@
+data:
+  dataset:
+    name: tusimple
+    root: data/tusimple
+    images: ${dataset.root}/images
+    masks: ${dataset.root}/masks
+    splits: ${dataset.root}/splits
+    height: 720
+    width: 1280
+    train_file: ${dataset.splits}/train.txt
+    val_file: ${dataset.splits}/val.txt
+    test_file: ${dataset.splits}/test.txt
+    num_classes: 1
+    mask_values:
+      background: 0
+      lane: 255
+train:
+  batch_size: 4
+  num_workers: 0
+  epochs: 3
+  lr: 0.001
+  weight_decay: 0.0
+  amp: true
+  out_dir: models
+  save_best: true
+  threshold: 0.5
+model:
+  name: unet_mobilenetv2
+  encoder: mobilenet_v2
+  encoder_weights: imagenet
+  in_channels: 3
+  classes: 1

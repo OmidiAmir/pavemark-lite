@@ -1,0 +1,20 @@
+# configs/train.yaml
+defaults:
+  - data: tusimple   # <- include the data group properly
+  - _self_           # <- recommended so local keys override as expected
+
+train:
+  batch_size: 4
+  num_workers: 0
+  epochs: 3
+  freeze_epochs: 1
+  lr: 1e-3
+  weight_decay: 1e-4
+  amp: true
+  save_dir: models/checkpoints
+  save_name: baseline_unet_mbv2.pth
+
+model:
+  encoder: mobilenet_v2
+  encoder_weights: imagenet
+  classes: 1

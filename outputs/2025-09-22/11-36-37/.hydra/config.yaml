@@ -1,0 +1,30 @@
+data:
+  dataset:
+    name: tusimple
+    root: data/tusimple
+    images: ${.root}/images
+    masks: ${.root}/masks
+    splits: ${.root}/splits
+    height: 720
+    width: 1280
+    train_file: ${.splits}/train.txt
+    val_file: ${.splits}/val.txt
+    test_file: ${.splits}/test.txt
+    num_classes: 1
+    mask_values:
+      background: 0
+      lane: 255
+train:
+  batch_size: 4
+  num_workers: 0
+  epochs: 3
+  freeze_epochs: 1
+  lr: 0.001
+  weight_decay: 0.0001
+  amp: true
+  save_dir: models/checkpoints
+  save_name: baseline_unet_mbv2.pth
+model:
+  encoder: mobilenet_v2
+  encoder_weights: imagenet
+  classes: 1
