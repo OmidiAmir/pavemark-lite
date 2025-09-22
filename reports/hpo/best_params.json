@@ -1,0 +1,9 @@
+{
+  "best_val_f1": 0.03891214728355408,
+  "params": {
+    "lr": 0.00017365781755238546,
+    "weight_decay": 2.3608621963369555e-05,
+    "batch_size": 8
+  },
+  "train_command": "python -m pavemark_lite.train train.lr=0.00017365781755238546 train.weight_decay=2.3608621963369555e-05 train.batch_size=8 train.epochs=20"
+}
