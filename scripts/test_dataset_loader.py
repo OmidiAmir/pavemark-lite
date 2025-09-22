@@ -7,9 +7,6 @@ from torch.utils.data import DataLoader
 from src.dataset.tusimple import TuSimpleSeg
 import torch
 
-
-
-
 cfg = OmegaConf.load("configs/data/tusimple.yaml").dataset
 
 # Use train split for a quick check
