@@ -1,0 +1,19 @@
+from dataclasses import dataclass
+import torch
+import segmentation_models_pytorch as smp
+
+@dataclass
+class BaselineCfg:
+    encoder_name: str = "mobilenet_v2"
+    encoder_weights: str = "imagenet"  # pretrained
+    in_channels: int = 3
+    classes: int = 1
+
+def build_baseline(cfg: BaselineCfg) -> torch.nn.Module:
+    model = smp.Unet(
+        encoder_name=cfg.encoder_name,
+        encoder_weights=cfg.encoder_weights,
+        in_channels=cfg.in_channels,
+        classes=cfg.classes,
+    )
+    return model
