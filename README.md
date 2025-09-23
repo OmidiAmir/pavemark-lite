@@ -67,10 +67,10 @@ Data folders are .gitignored. Only scripts/configs are versioned.
 - [x] Repo initialized & README polished
 - [x] Dataset integration + preprocessing pipeline
 - [x] Hydra entrypoint + DataLoader smoke-test
-- [X] Baseline training loop (U-Net MobileNetV2)
-- [X] Evaluation & error analysis
-- [X] Optuna HPO
-- [ ] ONNX export + parity tests
+- [x] Baseline training loop (U-Net MobileNetV2)
+- [x] Evaluation & error analysis
+- [x] Optuna HPO
+- [x] ONNX export + parity tests
 - [ ] Inference demo (Gradio / OpenCV)
 
 --- 
@@ -104,3 +104,10 @@ PyTorch · segmentation_models.pytorch · Hydra · Optuna · ONNX Runtime
 
 ⚠️ Note: These scores come from a **limited subset (~few hundred images, ~30 epochs)**.  
 With the full dataset, longer training, and stronger augmentations, performance can be **significantly improved** (literature reports F1 > 0.7 on TuSimple).
+
+
+## Deployment
+
+- Model exported to **ONNX**: `export/best.onnx`
+- Verified parity with PyTorch outputs (IoU ≈ 0.99 on sample images)
+- Ready for real-time inference with ONNX Runtime
