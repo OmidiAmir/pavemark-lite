@@ -77,7 +77,11 @@ def main(cfg: DictConfig):
     # ---- model / loss / opt ----
     model = make_model(cfg).to(device)
     freeze_encoder(model, freeze=True)   # start frozen
-    bce = nn.BCEWithLogitsLoss()
+    # bce = nn.BCEWithLogitsLoss()
+
+    from pavemark_lite.losses import BCEDiceLoss
+    bce = BCEDiceLoss()
+
     opt = torch.optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()),
                             lr=cfg.train.lr, weight_decay=cfg.train.weight_decay)
 
