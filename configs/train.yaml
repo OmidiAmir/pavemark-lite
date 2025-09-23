@@ -18,3 +18,11 @@ model:
   encoder: mobilenet_v2
   encoder_weights: imagenet
   classes: 1
+
+hpo:
+  n_trials: 10          # how many Optuna trials
+  timeout: 600          # seconds, ~10 min
+  params:
+    lr: [1e-4, 1e-3, 1e-2]
+    weight_decay: [1e-5, 1e-4, 1e-3]
+    batch_size: [2, 4, 8]
