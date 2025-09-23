@@ -67,9 +67,9 @@ Data folders are .gitignored. Only scripts/configs are versioned.
 - [x] Repo initialized & README polished
 - [x] Dataset integration + preprocessing pipeline
 - [x] Hydra entrypoint + DataLoader smoke-test
-- [ ] Baseline training loop (U-Net MobileNetV2)
-- [ ] Evaluation & error analysis
-- [ ] Optuna HPO
+- [X] Baseline training loop (U-Net MobileNetV2)
+- [X] Evaluation & error analysis
+- [X] Optuna HPO
 - [ ] ONNX export + parity tests
 - [ ] Inference demo (Gradio / OpenCV)
 
@@ -90,3 +90,17 @@ PyTorch · segmentation_models.pytorch · Hydra · Optuna · ONNX Runtime
 
   --- 
 
+## HPO
+- Best params: `reports/hpo/best_params.json`
+- All trials: `reports/hpo/trials.csv`
+- Plots: `reports/hpo/opt_history.png`, `reports/hpo/param_importance.png`
+
+
+## Baseline Results (best params, TuSimple subset)
+
+| Split |  F1   | mIoU  |
+|------:|------:|------:|
+| Test  | 0.395 | 0.246 |
+
+⚠️ Note: These scores come from a **limited subset (~few hundred images, ~30 epochs)**.  
+With the full dataset, longer training, and stronger augmentations, performance can be **significantly improved** (literature reports F1 > 0.7 on TuSimple).
